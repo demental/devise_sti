@@ -1,0 +1,28 @@
+== Rails 3.1rc4 + devise + Single table inheritance = fail
+
+This app demonstrats the issue I'm having with devise and single table inheritance: 
+
+I have two devise_for : admins and users
+
+the Admin model inherits from User model.
+
+When trying to access resources accessible only for admins (@see posts_controller#index), I get redirected to admins/signin although an admin is signed in.
+
+
+
+
+== Install
+
+1. git clone
+
+2. rvm use 1.9.2p180@devise_sti_issue --create
+
+3. bundle install
+
+4. rake db:migrate
+
+5. rake db:test:prepare
+
+6. rspec spec/controllers/posts_controller_spec.rb
+
+7. see test fail
